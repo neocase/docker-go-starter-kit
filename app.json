@@ -1,0 +1,13 @@
+{
+  "name": "Docker - Go starter kit",
+  "description": "because docker + go = <3",
+  "keywords": [
+    "Neocase",
+    "go",
+    "docker",
+    "postgres"
+  ],
+  "mount_dir": "src/github.com/neocase/docker-go-starter-kit",
+  "website": "http://github.com/neocase/docker-go-starter-kit",
+  "repository": "http://github.com/neocase/docker-go-starter-kit"
+}
