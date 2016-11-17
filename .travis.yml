@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+
+language: go
+
+go:
+  - '1.7'
+
+after_success:
+  - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build app/main.go
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - export REPO=neocase/neo-fundations
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfiles/app.dockerfile -t $REPO:$TAG .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker push $REPO
