@@ -1,1 +1,1 @@
-# docker-go-starter-kit
+# docker-go-starter-kit [![Code Climate](https://codeclimate.com/github/neocase/docker-go-starter-kit/badges/gpa.svg)](https://codeclimate.com/github/neocase/docker-go-starter-kit) [![Build Status](https://travis-ci.com/neocase/docker-go-starter-kit.svg?token=op4uDYa9UppSKYXz7FYS&branch=master)](https://travis-ci.com/neocase/docker-go-starter-kit)
