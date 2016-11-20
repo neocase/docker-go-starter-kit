@@ -3,6 +3,18 @@
 	"ignore": "test",
 	"package": [
 		{
+			"path": "#",
+			"revision": ""
+		},
+		{
+			"path": "0.0.2",
+			"revision": ""
+		},
+		{
+			"path": "Version",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "8DlgmaqU9IMkyn64GBT50qgYD+I=",
 			"path": "github.com/gin-gonic/gin",
 			"revision": "bb159f9260a262fccbdbd6f37f8575d1e7e6aaa0",
@@ -25,6 +37,18 @@
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "8ee79997227bf9b34611aee7946ae64735e6fd93",
 			"revisionTime": "2016-11-17T03:31:26Z"
+		},
+		{
+			"checksumSHA1": "+ktgsWIPvNv+eM/MBF/byReVKmk=",
+			"path": "github.com/lib/pq",
+			"revision": "d8eeeb8bae8896dd8e1b7e514ab0d396c4f12a1b",
+			"revisionTime": "2016-11-03T02:43:54Z"
+		},
+		{
+			"checksumSHA1": "K4XuhnpGWTFMLSDIdvDr5AH3fTw=",
+			"path": "github.com/lib/pq/oid",
+			"revision": "d8eeeb8bae8896dd8e1b7e514ab0d396c4f12a1b",
+			"revisionTime": "2016-11-03T02:43:54Z"
 		},
 		{
 			"checksumSHA1": "8sba7NooZnLTY8zidsbqBeDUjxI=",
