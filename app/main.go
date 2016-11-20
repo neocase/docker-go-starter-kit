@@ -26,6 +26,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		defer db.Close()
 		err = db.Ping()
 		dbStats := db.Stats()
 		if err != nil {
