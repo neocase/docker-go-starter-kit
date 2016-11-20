@@ -6,12 +6,16 @@
 ### Bootstrapping a new project
 
 ```shell
-$ git clone https://github.com/neocase/docker-go-starter-kit.git && cd docker-go-starter-kit
-$ docker-compose up
+$ go get github.com/neocase/docker-go-starter-kit
+$ cd $GOPATH/src/github.com/neocase/docker-starter-kit
 ```
 
-This will also start the included HTTP server on http://localhost:8080 
+Then you can edit the code and check the result by running the docker image 
+and hit HTTP server on http://localhost:8080 
 
+```shell
+$ docker-compose up --build
+```
 
 ## License
 

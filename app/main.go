@@ -21,15 +21,15 @@ func main() {
 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
 	})
 	router.GET("/dbping", func(c *gin.Context) {
-		db, err := sql.Open("postgres", "user=neo_user dbname=neo_db sslmode=verify-full")
+		db, err := sql.Open("postgres", "host=postgres port=5432 user=neo_user dbname=neo_db")
 		if err != nil {
 			log.Fatal(err)
 		}
 		err = db.Ping()
 		if err != nil {
-			c.String(http.StatusInternalServerError, "hotstName : %s\nDbStatus : %s", os.Getenv("HOSTNAME"), err)
+			c.String(http.StatusOK, "hotstName : %s\nDbStatus : %s", os.Getenv("HOSTNAME"), err)
 		}
-		c.String(http.StatusOK, "db good", nil)
+		c.String(http.StatusOK, "\nhotstName : %s\nDbStatus :db good", os.Getenv("HOSTNAME"))
 	})
 	router.Run(":" + port)
 }
