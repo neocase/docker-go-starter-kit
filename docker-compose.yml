@@ -14,10 +14,8 @@ services:
     networks:
       - neo_dev
     restart: always
-    expose:
-      - "8080"
     pid: "host"
-    env_file: .app.env
+
   postgres:
     build:
       context: .
@@ -30,14 +28,8 @@ services:
       - postgresql_data:/var/lib/postgresql/data
     ports:
       - "5430:5432"  #in case you already have postgres running in your host machine
-    expose:
-      - "5430" #Postgres database
-    env_file: .postgres.env
     pid: "host"
-    environment: 
-      - POSTGRES_USER = docker
-      - POSTGRES_PASSWORD = docker
-      - POSTGRES_DB = docker
+
 
 networks:
     neo_dev:

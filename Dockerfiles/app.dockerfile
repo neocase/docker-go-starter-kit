@@ -8,7 +8,7 @@ RUN  mkdir -p /go/src/$REPO \
 ENV GOPATH=/go
 ENV PATH=$GOPATH/bin:$PATH
 ENV APP=$GOPATH/src/$REPO
-
+ENV PORT=8080
 ADD ./app $APP
 
 WORKDIR $APP
