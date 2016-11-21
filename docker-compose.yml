@@ -12,10 +12,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - POSTGRES_PASSWORD = neo_password
-      - POSTGRES_USER = neo_user
-      - POSTGRES_DB = neo_db
-      - PORT=8080
+      PORT: 8080
     networks:
       - neo_dev
     restart: always
@@ -32,6 +29,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
     ports:
       - "5430:5432"  #in case you already have postgres running in your host machine
+
 networks:
     neo_dev:
       driver: bridge

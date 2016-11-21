@@ -22,7 +22,7 @@ func main() {
 	})
 
 	router.GET("/db", func(c *gin.Context) {
-		db, err := sql.Open("postgres", "host=postgres port=5432 user=neo_user dbname=neo_db password=neo_password sslmode=disable")
+		db, err := sql.Open("postgres", "host=postgres port=5432 user=docker dbname=docker password=docker sslmode=disable")
 		if err != nil {
 			log.Fatal("Error: The data source arguments are not valid - " + err.Error())
 		}
