@@ -22,19 +22,17 @@ func main() {
 	})
 
 	router.GET("/db", func(c *gin.Context) {
-		db, err := sql.Open("postgres", "host=postgres port=5432 user=neo_user dbname=neo_db")
+		db, err := sql.Open("postgres", "host=postgres port=5432 user=neo_user dbname=neo_db password=neo_password sslmode=disable")
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal("Error: The data source arguments are not valid - " + err.Error())
 		}
 		err = db.Ping()
-		dbStats := db.Stats()
-		log.Println(dbStats)
-		log.Println("OpenConnections")
-		log.Println(dbStats.OpenConnections)
+		
 		if err != nil {
+			log.Println("Error: Could not establish a connection with the database")
 			c.String(http.StatusOK, "hotstName : %s\nDbStatus : %s", os.Getenv("HOSTNAME"), err)
 		} else {
-			c.String(http.StatusOK, "\nhotstName : %s\nDbStatus :db good\ndb stats : %d", os.Getenv("HOSTNAME"), dbStats.OpenConnections)
+			c.String(http.StatusOK, "\nhotstName : %s\nDbStatus : connection ok !\n", os.Getenv("HOSTNAME"))
 		}
 		defer db.Close()
 	})
