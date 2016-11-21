@@ -1,6 +1,5 @@
-FROM golang:1.7
+FROM golang
 MAINTAINER Samir Bouaked "sbouaked@neocasesoftware.com"
-EXPOSE 8080
 ENV REPO=github.com/neocase/docker-go-starter-kit
 RUN apt-get update && apt-get install -y ca-certificates git-core ssh
 RUN  mkdir -p /go/src/$REPO \
@@ -13,6 +12,7 @@ ENV APP=$GOPATH/src/$REPO
 ADD ./app $APP
 
 WORKDIR $APP
+EXPOSE 8080
 
 RUN go build -o docker-go-starter-kit .
 CMD ["./docker-go-starter-kit"]
