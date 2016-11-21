@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "init db"
+echo "INSERT HERE YOUR SCRIPT"
