@@ -3,10 +3,18 @@ sudo: required
 services:
   - docker
 
+branches:
+  only:
+  - master
+  - staging
+
 language: go
 
 go:
   - '1.7'
+before_install:
+  - apt-get install python-dev
+  - pip install docker-cloud
 
 after_success:
   - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build app/main.go
@@ -23,3 +31,5 @@ after_success:
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker push $REPO
   - docker-cloud stack create -f docker-cloud.yml
+
+
