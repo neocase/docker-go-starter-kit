@@ -17,19 +17,20 @@ before_install:
   - pip install docker-cloud
 
 after_success:
+  - export APP=docker-go-starter-kit
+  - export DB=postgres-starter-kit
   - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build app/main.go
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-  - export REPO=neocase/docker-go-starter-kit
+  - export REPO=neocase/$APP
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -f Dockerfiles/app.dockerfile -t $REPO:$TAG .
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker push $REPO
-  - export REPO=neocase/postgres-starter-kit
+  - export REPO=neocase/$DB
   - docker build -f Dockerfiles/postgres.dockerfile -t $REPO:$TAG .
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker push $REPO
-  - docker-cloud stack create -f docker-cloud.yml
-
+  - docker-cloud stack up -f docker-cloud.yml
 
