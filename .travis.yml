@@ -32,5 +32,5 @@ after_success:
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker push $REPO
-  - docker-cloud stack up -f docker-cloud.yml
+  - docker-cloud stack update -f docker-cloud.yml $APP
 
