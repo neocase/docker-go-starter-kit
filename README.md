@@ -1,5 +1,5 @@
 # docker-go-starter-kit 
-[![Code Climate](https://codeclimate.com/github/neocase/docker-go-starter-kit/badges/gpa.svg)](https://codeclimate.com/github/neocase/docker-go-starter-kit) [![Build Status](https://travis-ci.com/neocase/docker-go-starter-kit.svg?token=op4uDYa9UppSKYXz7FYS&branch=master)](https://travis-ci.com/neocase/docker-go-starter-kit)
+[![Code Climate](https://codeclimate.com/github/neocase/docker-go-starter-kit/badges/gpa.svg)](https://codeclimate.com/github/neocase/docker-go-starter-kit) [![Build Status](https://travis-ci.com/neocase/docker-go-starter-kit.svg?token=op4uDYa9UppSKYXz7FYS&branch=master)](https://travis-ci.com/neocase/docker-go-starter-kit)[![Docker Pulls](https://img.shields.io/docker/pulls/mashape/kong.svg)](https://hub.docker.com/r/neocase/docker-go-starter-kit/)
 
 ## Usage
 

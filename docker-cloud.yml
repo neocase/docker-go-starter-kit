@@ -1,10 +1,12 @@
 app:
+  nickname: golang demo app
   image: neocase/docker-go-starter-kit:latest
   links:
     - postgres
   ports:
     - "8080:8080"
 postgres:
+  nickname: postgres demo app
   image: neocase/postgres-starter-kit:latest
   ports:
     - "5430:5432" 
