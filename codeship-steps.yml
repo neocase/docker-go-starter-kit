@@ -1,2 +1,6 @@
 - service: app
-  name: run app
+  name: app
+  command: ls
+- service: postgres
+  name: postgres
+  command: ls
