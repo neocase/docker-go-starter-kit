@@ -1,1 +1,2 @@
 - service: app
+  command: bash check.sh
