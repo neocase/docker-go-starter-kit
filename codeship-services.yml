@@ -1,34 +1,31 @@
-version: "2"
+app:
+  build:
+    context: .
+    dockerfile: Dockerfiles/app.dockerfile
+  links:
+    - postgres
+  depends_on:
+    - postgres
+  ports:
+    - "8080:8080"
+  networks:
+    - neo_dev
+  restart: always
+  pid: "host"
 
-services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfiles/app.dockerfile
-    links:
-      - postgres
-    depends_on:
-      - postgres
-    ports:
-      - "8080:8080"
-    networks:
-      - neo_dev
-    restart: always
-    pid: "host"
-
-  postgres:
-    build:
-      context: .
-      dockerfile: Dockerfiles/postgres.dockerfile
-    networks:
-      - neo_dev
-    volumes:
-      - postgresql:/var/lib/postgresql
-      # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
-      - postgresql_data:/var/lib/postgresql/data
-    ports:
-      - "5430:5432"  #in case you already have postgres running in your host machine
-    pid: "host"
+postgres:
+  build:
+    context: .
+    dockerfile: Dockerfiles/postgres.dockerfile
+  networks:
+    - neo_dev
+  volumes:
+    - postgresql:/var/lib/postgresql
+    # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
+    - postgresql_data:/var/lib/postgresql/data
+  ports:
+    - "5430:5432"  #in case you already have postgres running in your host machine
+  pid: "host"
 
 
 networks:
